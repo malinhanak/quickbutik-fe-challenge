@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { type Product } from '@/utils/types'
+import Rating from '@/components/Product/Rating'
 
 interface ProductListLayoutProps {
   product: Product
@@ -29,12 +30,7 @@ const ProductListLayout: React.FC<ProductListLayoutProps> = ({ product }) => {
           ${product.price}
         </span>
         <span className="text-sm text-gray-500">{product.stock} in stock</span>
-        <div className="mt-2 flex items-center">
-          <span className="text-yellow-500">{'★'.repeat(product.rating)}</span>
-          <span className="ml-2 text-sm text-gray-600">
-            {product.rating} / 5
-          </span>
-        </div>
+        <Rating product={product} />
       </div>
     </div>
   )
